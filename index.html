@@ -8,7 +8,6 @@
         /* កំណត់ Font និងផ្ទៃខាងក្រោយពណ៌ផ្កាឈូក */
         body {
             font-family: "Khmer OS Bokor", cursive, serif;
-            /* ប្រើពណ៌ផ្កាឈូកបែប Gradient ដើម្បីឱ្យមើលទៅទំនើប */
             background: linear-gradient(135deg, #ffafbd, #ffc3a0);
             display: flex;
             justify-content: center;
@@ -19,23 +18,22 @@
         }
 
         .container {
-            background: rgba(255, 255, 255, 0.9); /* ប្រអប់ពណ៌សថ្លា */
+            background: rgba(255, 255, 255, 0.95);
             padding: 40px;
             border: 5px solid #ff4d6d;
             border-radius: 30px;
             box-shadow: 0 15px 35px rgba(255, 77, 109, 0.3);
             text-align: center;
-            width: 380px;
+            width: 400px;
         }
 
         h2 {
             font-size: 26px;
             color: #ff4d6d;
             margin-bottom: 30px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
 
-        /* រចនាប័ទ្មប៊ូតុងហ្គេម */
+        /* រចនាប័ទ្មប៊ូតុង */
         .game-btn {
             font-family: "Khmer OS Bokor", sans-serif;
             display: block;
@@ -47,11 +45,9 @@
             border-radius: 15px;
             cursor: pointer;
             transition: 0.1s;
-            position: relative;
             font-weight: bold;
         }
 
-        /* ប៊ូតុងទី ១: ពណ៌ផ្កាឈូកដិត */
         .btn-1 {
             background-color: #ff4d6d;
             color: white;
@@ -62,29 +58,32 @@
             box-shadow: 0 2px 0 #c9184a;
         }
 
-        /* ប៊ូតុងទី ២: ពណ៌ស្វាយស្រាល */
         .btn-2 {
             background-color: #7209b7;
             color: white;
-            box-shadow: 0 6px 0 #4cc9f0;
+            box-shadow: 0 6px 0 #4c087d;
         }
         .btn-2:active {
             transform: translateY(4px);
-            box-shadow: 0 2px 0 #4cc9f0;
+            box-shadow: 0 2px 0 #4c087d;
         }
 
-        /* ប៊ូតុងថយក្រោយ */
+        /* សារបង្ហាញលទ្ធផល */
+        #display-text {
+            font-size: 24px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
         .back-btn {
             font-family: "Khmer OS Bokor", sans-serif;
-            background-color: #ffb3c1;
-            color: #590d22;
+            background-color: #f0f0f0;
+            color: #ff4d6d;
             padding: 10px 30px;
-            font-size: 18px;
             border: 2px solid #ff4d6d;
             border-radius: 50px;
-            margin-top: 25px;
             cursor: pointer;
-            transition: 0.3s;
+            font-size: 18px;
         }
         .back-btn:hover {
             background-color: #ff4d6d;
@@ -92,22 +91,16 @@
         }
 
         .hidden { display: none; }
-        
-        /* បន្ថែមរូបរាងបេះដូងតូចៗ (Optional Decor) */
-        .heart-icon {
-            color: #ff4d6d;
-            font-size: 24px;
-        }
     </style>
 </head>
 <body>
 
 <div class="container">
     <div id="main-menu">
-        <div class="heart-icon">💖</div>
-        <h2>ជ្រើសរើសមួយមក!</h2>
+        <h2 style="font-size: 40px;">💖</h2>
+        <h2>ជ្រើសរើសសំណួរ</h2>
         <button class="game-btn btn-1" onclick="show('ស្រលាញ់គេម្នាក់ឯងមែន?')">ប៊ូតុងទី ១</button>
-        <button class="game-btn btn-2" onclick="show('ឈប់ស្រលាញ់គេម្នាក់ឯងទៀតទៅ')">ប៊ូតុងទី ២</button>
+        <button class="game-btn btn-2" onclick="show('ឈប់ស្រលាញ់គេម្នាក់ឯងទៀតទៅ!')">ប៊ូតុងទី ២</button>
     </div>
 
     <div id="message-screen" class="hidden">
@@ -120,7 +113,8 @@
     function show(msg) {
         document.getElementById('main-menu').classList.add('hidden');
         document.getElementById('message-screen').classList.remove('hidden');
-        document.getElementById('display-text').innerText = msg;
+        // បន្ថែម Icon សើច 😂 នៅពីមុខសារ
+        document.getElementById('display-text').innerText = "😂 " + msg;
     }
 
     function goBack() {
